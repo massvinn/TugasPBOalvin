@@ -1,23 +1,17 @@
 <?php
 
-require('./ahmdalvin.php');
+require('./PropertyConstant.php');
 
 use Pbo\Marketplace\Produk;
 
 //object
-$produk = new Produk('P001','Laptop',10000000,5);
+$produk = new Produk();
 
-//Hasil
-echo "produk: $produk->nama";
-echo "<br/>";
+$produk->setKode('P0001')->setNama('Laptop')->setHarga('10000000')->setstok(5);
 
-echo "harga: $produk->harga";
-echo "<br/>";
 
-echo "stok: $produk->stok";
-echo "<br/>";
-
-echo "Pajak: ". $produk->pajak() . "%";
-echo "<br/>";
-echo "<br/>";
-echo "Total Harga Setelah Pajak: Rp.". $produk->total();
+echo "Produk : ",$produk->getNama(), "<br>";
+echo "Harga : Rp.", $produk->getHarga(), "<br>";
+echo "Stok : ", $produk->getStok(), "<br>";
+echo "Pajak : ", $produk->pajak(), "% <br> <br> ";
+echo "Total setelah  harga pajak : Rp.", $produk->total(), "<br>";
